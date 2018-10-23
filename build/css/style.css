@@ -133,6 +133,7 @@ a {
       align-self: flex-end; }
 
 footer {
+  margin: 20px;
   color: #c2c2c2; }
 
 @media screen and (min-width: 600px) {

@@ -1,5 +1,6 @@
-// Built by LucyBot. www.lucybot.com
-var url = 'https://api.nytimes.com/svc/topstories/v2/home.json';
+$('select').on('change',function() {
+  $('.container').empty();
+  var url = 'https://api.nytimes.com/svc/topstories/v2/' + $('select').val() + '.json';
 url += '?' + $.param({
   'api-key': '73e3bb94a859478c81baf1a5a4566dae'
 });
@@ -14,10 +15,9 @@ $.ajax({
 
   $('title').append(result.results[i].abstract);
   $('.container').append('<div class="articlecontainer"><a href="'+ articleUrl +'" class="link"><h1 class="summary">'+ title +'</h1> </a></div>');
-  $('.articleContainer').last().css('background-image', 'url(' + imageUrl+')');
+  $('.articleContainer').last().css('background-image', 'url(' + imageUrl+')');  
 }
 }).fail(function(err) {
   throw err;
 });
-
-
+});
