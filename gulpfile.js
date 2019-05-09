@@ -6,8 +6,8 @@ const gulp = require('gulp'),
   cssnano = require('gulp-cssnano'),
   uglify = require('gulp-uglify-es').default,
   eslint = require('gulp-eslint');
-  
-  var browserSync = require('browser-sync').create();
+
+var browserSync = require('browser-sync').create();
 
 // Create basic Gulp tasks
 
@@ -26,18 +26,19 @@ gulp.task('sass', function(done) {
     .pipe(rename('style.min.css'))
     .pipe(gulp.dest('./build/css'));
 
-  
   done();
 });
 
 gulp.task('lint', function() {
-  return (gulp
+  return (
+    gulp
       .src(['./js/*.js'])
       // Also need to use it here...
       .pipe(prettyError())
       .pipe(eslint())
       .pipe(eslint.format())
-      .pipe(eslint.failAfterError()) );
+      .pipe(eslint.failAfterError())
+  );
 });
 
 gulp.task(
