@@ -3,7 +3,7 @@
 ----
 ## What is this project?
 
-> In this project I had to create a social media style news format, using the New York Times API. I had to use HTML, CSS, SASS, Gulp, jQuery & JavaScript to create the website.
+> In this project I had to create a social media style news format using the New York Times API. I had to use HTML, CSS, SASS, Gulp, jQuery & JavaScript to create the website.
 
 ----
 ## Thanks
