@@ -37,7 +37,7 @@ $(document).ready(function() {
                   '</h1> </a></div>'
               )
               .hide()
-              .slideDown(1000);
+              .fadeIn(1000);
             $('.articleContainer')
               .last()
               .css('background-image', 'url(' + imageUrl + ')');
