@@ -1,5 +1,5 @@
 {
-  "name": "Project-2",
+  "name": "Instanews",
   "version": "1.0.0",
   "description": "Project 2 for RED Academy",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "author": "Chris hanson",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "eslint": "^5.16.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
