@@ -1,0 +1,7 @@
+footer {
+    @include footer;
+
+    @media screen and (min-width: 1200px) {
+        justify-content: flex-start;
+    }
+}

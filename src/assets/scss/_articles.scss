@@ -1,0 +1,38 @@
+.articles {
+    .loading {
+        @include centered;
+        width: 100%;
+
+        img {
+            width: 5em;
+        }
+    }
+
+    .articleContainer {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include mobileArticles;
+
+        .summary {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            padding: 0.5em;
+            text-align: center;
+            color: $color;
+            background: $articleTextBackgroundColor;
+        }
+
+        .summary:hover {
+            opacity: 1;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        @include tabletArticles;
+    }
+
+    @media screen and (min-width: 1200px) {
+        @include desktopArticles;
+    }
+}

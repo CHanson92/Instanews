@@ -1,0 +1,11 @@
+header {
+    @include mobileHeader;
+    
+    @media screen and (min-width: 600px) {
+        @include tabletHeader;
+    }
+
+    @media screen and (min-width: 1200px) {
+        @include desktopHeader;
+    }
+}

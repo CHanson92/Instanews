@@ -9,3 +9,9 @@ ehthumbs.db
 *.Trashes
 # Ignore npm packages
 node_modules/
+# Ignore dist
+dist
+# Ignore project-02 files
+project-02
+# Ignore .vscode folder
+.vscode

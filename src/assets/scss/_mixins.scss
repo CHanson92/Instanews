@@ -1,0 +1,70 @@
+@import 'variables';
+
+@mixin centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin footer {
+    @include centered;
+    margin: 1em;
+}
+
+@mixin mobileHeader {
+    @include centered;
+    flex-direction: column;
+
+    .chooseasection {
+        @include centered;
+        flex-direction: column;
+        margin: 1em;
+
+        select {
+            margin: 1em;
+        }
+    }
+}
+
+@mixin mobileArticles {
+    height: 15em;
+    display: flex;
+    align-items: flex-end;
+}
+
+@mixin tabletHeader {
+    flex-direction: row;
+    font-size: 1.25em;
+
+    .chooseasection {
+        select {
+            padding: 0.5em;
+            font-size: 0.8em;
+        }
+    }
+}
+
+@mixin tabletArticles {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 2em;
+
+    .articleContainer {
+        width: 33.3%;
+    }
+}
+
+@mixin desktopHeader {
+    justify-content: flex-start;
+    font-size: 1.5em;
+
+    select {
+        padding: 0.75em;
+    }
+}
+
+@mixin desktopArticles {
+    .articleContainer {
+        width: 25%;
+    }
+}
