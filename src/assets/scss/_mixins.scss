@@ -66,5 +66,14 @@
 @mixin desktopArticles {
     .articleContainer {
         width: 25%;
+
+        .summary {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .summary:hover {
+            opacity: 1;
+        }
     }
 }

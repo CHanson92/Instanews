@@ -15,16 +15,10 @@
         @include mobileArticles;
 
         .summary {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
             padding: 0.5em;
             text-align: center;
             color: $color;
             background: $articleTextBackgroundColor;
-        }
-
-        .summary:hover, .summary:focus, .summary:active {
-            opacity: 1;
         }
     }
 
