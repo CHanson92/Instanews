@@ -23,7 +23,7 @@
             background: $articleTextBackgroundColor;
         }
 
-        .summary:hover {
+        .summary:hover, .summary:focus, .summary:active {
             opacity: 1;
         }
     }
