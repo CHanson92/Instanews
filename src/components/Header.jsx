@@ -7,7 +7,7 @@ const Header = props => {
     return (
         <header>
             <div>
-                <img className='logo' src={logo} />
+                <img className='logo' alt='NY Times logo' src={logo} />
             </div>
             <section className='chooseasection'>
                 Choose a section:

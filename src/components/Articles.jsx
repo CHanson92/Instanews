@@ -1,22 +1,22 @@
-import React from 'react'
-import 'lazysizes'
-import 'lazysizes/plugins/unveilhooks/ls.unveilhooks'
-import 'lazysizes/plugins/bgset/ls.bgset'
-import 'lazysizes/plugins/attrchange/ls.attrchange'
-import loadingIndicator from '../assets/images/ajax-loader.gif'
+import React from 'react';
+import 'lazysizes';
+import 'lazysizes/plugins/unveilhooks/ls.unveilhooks';
+import 'lazysizes/plugins/bgset/ls.bgset';
+import 'lazysizes/plugins/attrchange/ls.attrchange';
+import loadingIndicator from '../assets/images/ajax-loader.gif';
 
 const Articles = props => {
-    let articles = props.articles
-    let loading = props.loading
+    let articles = props.articles;
+    let loading = props.loading;
     return (
         <section className='articles'>
             {loading === true ? (
                 <div className='loading'>
-                    <img src={loadingIndicator} />
+                    <img alt='' src={loadingIndicator} />
                 </div>
             ) : (
                 articles
-                    .filter(article => article.multimedia.length != 0)
+                    .filter(article => article.multimedia.length !== 0)
                     .map((article, index) => (
                         <div
                             key={index}
@@ -31,7 +31,7 @@ const Articles = props => {
                     ))
             )}
         </section>
-    )
-}
+    );
+};
 
-export default Articles
+export default Articles;
