@@ -1,6 +1,6 @@
 header {
     @include mobileHeader;
-    
+
     @media screen and (min-width: 600px) {
         @include tabletHeader;
     }
