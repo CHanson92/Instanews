@@ -8,7 +8,8 @@
         "start": "webpack-dev-server --mode development",
         "build": "webpack --mode production",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist"
+        "deploy": "gh-pages -d dist",
+        "test": "cypress open"
     },
     "husky": {
         "hooks": {
@@ -21,7 +22,7 @@
             "eslint --fix",
             "git add"
         ],
-        "*.+(json|scss|md)": [
+        "*.+(json|scss|md|html)": [
             "prettier --write",
             "git add"
         ]
@@ -30,10 +31,12 @@
     "author": "Chris hanson",
     "license": "ISC",
     "devDependencies": {
+        "@types/jest": "^24.0.23",
         "@typescript-eslint/eslint-plugin": "^2.9.0",
         "@typescript-eslint/parser": "^2.9.0",
         "babel-eslint": "^10.0.3",
         "css-loader": "^3.2.0",
+        "cypress-react-unit-test": "^2.4.3",
         "eslint": "^6.7.2",
         "eslint-config-prettier": "^6.7.0",
         "eslint-config-react-app": "^5.0.2",
@@ -46,9 +49,11 @@
         "file-loader": "^4.2.0",
         "gh-pages": "^2.1.1",
         "husky": "^3.1.0",
+        "jest": "^24.9.0",
         "lint-staged": "^9.5.0",
         "node-sass": "^4.13.0",
         "prettier": "^1.19.1",
+        "react-test-renderer": "^16.12.0",
         "sass-loader": "^8.0.0",
         "style-loader": "^1.0.0",
         "url-loader": "^2.2.0",
@@ -63,6 +68,7 @@
         "and": "0.0.3",
         "axios": "^0.19.0",
         "babel-loader": "^8.0.6",
+        "cypress": "^3.7.0",
         "html-webpack-plugin": "^3.2.0",
         "lazysizes": "^5.1.2",
         "react": "^16.11.0",
