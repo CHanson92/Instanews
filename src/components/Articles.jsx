@@ -12,7 +12,11 @@ const Articles = ({ results }) => (
         <section className='articles'>
             {results
                 ? results
-                      .filter((article) => article.multimedia.length !== 0)
+                      .filter(
+                          (article) =>
+                              article.multimedia !== null &&
+                              article.multimedia.length !== 0,
+                      )
                       .map((article, index) => (
                           <Article article={article} key={index} />
                       ))
