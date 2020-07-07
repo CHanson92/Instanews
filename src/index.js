@@ -38,7 +38,7 @@ const App = () => {
     const [loading, setLoading] = useState(false);
     const [articles, setArticles] = useState([]);
 
-    const onChange = e => {
+    const onChange = (e) => {
         setSelectedFilter(e.target.value);
     };
 
@@ -54,7 +54,7 @@ const App = () => {
                     setLoading(true);
                     await axios
                         .get(url)
-                        .then(response => setArticles(response.data.results));
+                        .then((response) => setArticles(response.data.results));
                     setLoading(false);
                 }
             };
