@@ -1,37 +1,24 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import 'lazysizes';
 import 'lazysizes/plugins/unveilhooks/ls.unveilhooks';
 import 'lazysizes/plugins/bgset/ls.bgset';
 import 'lazysizes/plugins/attrchange/ls.attrchange';
-import loadingIndicator from '../assets/images/ajax-loader.gif';
+import Loading from './Loading';
 
-const Articles = props => {
-    let articles = props.articles;
-    let loading = props.loading;
-    return (
+const Article = lazy(() => import('./Article'));
+
+const Articles = ({ results }) => (
+    <Suspense fallback={<Loading />}>
         <section className='articles'>
-            {loading === true ? (
-                <div className='loading'>
-                    <img alt='' src={loadingIndicator} />
-                </div>
-            ) : (
-                articles
-                    .filter(article => article.multimedia.length !== 0)
-                    .map((article, index) => (
-                        <div
-                            key={index}
-                            className='articleContainer lazyload'
-                            data-bg={article.multimedia[4]['url']}
-                            data-sizes='auto'
-                        >
-                            <a href={article.url}>
-                                <h1 className='summary'>{article.abstract}</h1>
-                            </a>
-                        </div>
-                    ))
-            )}
+            {results
+                ? results
+                      .filter((article) => article.multimedia.length !== 0)
+                      .map((article, index) => (
+                          <Article article={article} key={index} />
+                      ))
+                : null}
         </section>
-    );
-};
+    </Suspense>
+);
 
 export default Articles;
