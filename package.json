@@ -5,75 +5,74 @@
     "main": "index.js",
     "homepage": "https://chanson92.github.io/Project-2-Instanews/",
     "scripts": {
-        "start": "webpack-dev-server --mode development",
-        "build": "webpack --mode production",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist",
-        "test": "cypress open"
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "type-check": "tsc --pretty --noEmit",
+        "format": "prettier --write \"**/*.{js,ts,tsx}\"",
+        "lint": "eslint . --ext ts --ext tsx --ext js",
+        "predeploy": "yarn build",
+        "deploy": "gh-pages -d dist"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "lint-staged",
+            "pre-push": "yarn run type-check"
         }
     },
     "lint-staged": {
-        "*.+(js|jsx)": [
-            "prettier --write",
-            "eslint --fix",
-            "git add"
-        ],
-        "*.+(json|scss|md|html)": [
-            "prettier --write",
-            "git add"
+        "*.@(ts|tsx)": [
+            "yarn lint",
+            "yarn format"
         ]
     },
     "keywords": [],
-    "author": "Chris hanson",
+    "author": "Chris Hanson",
     "license": "ISC",
     "devDependencies": {
-        "@types/jest": "^26.0.4",
-        "@typescript-eslint/eslint-plugin": "^3.6.0",
-        "@typescript-eslint/parser": "^3.6.0",
+        "@types/react": "^16.9.49",
+        "@types/styled-components": "^5.1.3",
         "babel-eslint": "^10.0.3",
-        "css-loader": "^3.2.0",
-        "cypress-react-unit-test": "^4.9.0",
-        "eslint": "^7.4.0",
+        "babel-plugin-styled-components": "^1.11.1",
+        "eslint": "^7.9.0",
         "eslint-config-prettier": "^6.7.0",
         "eslint-config-react-app": "^5.0.2",
         "eslint-plugin-flowtype": "^5.2.0",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-prettier": "^3.1.1",
-        "eslint-plugin-react": "^7.17.0",
-        "eslint-plugin-react-hooks": "^4.0.5",
-        "file-loader": "^6.0.0",
+        "eslint-plugin-react": "^7.20.5",
+        "eslint-plugin-react-hooks": "^4.1.2",
         "gh-pages": "^3.1.0",
-        "husky": "^4.2.5",
-        "jest": "^26.1.0",
-        "lint-staged": "^10.2.11",
+        "husky": "^4.3.0",
+        "jest": "^26.4.2",
+        "lint-staged": "^10.3.0",
         "node-sass": "^4.13.0",
-        "prettier": "^2.0.5",
+        "prettier": "^2.1.1",
         "react-test-renderer": "^16.12.0",
-        "sass-loader": "^9.0.2",
-        "style-loader": "^1.0.0",
-        "url-loader": "^4.1.0",
-        "webpack": "^4.41.2"
+        "typescript": "^4.0.2"
     },
     "dependencies": {
-        "@babel/core": "^7.7.2",
-        "@babel/plugin-transform-runtime": "^7.6.2",
-        "@babel/preset-env": "^7.7.1",
+        "@babel/core": "^7.11.6",
+        "@babel/plugin-transform-runtime": "^7.11.5",
+        "@babel/preset-env": "^7.11.5",
         "@babel/preset-react": "^7.7.0",
-        "@babel/runtime": "^7.7.2",
-        "and": "0.0.3",
-        "axios": "^0.19.0",
+        "@babel/runtime": "^7.11.2",
+        "@typescript-eslint/eslint-plugin": "^4.1.0",
+        "@typescript-eslint/parser": "^4.1.0",
+        "axios": "^0.20.0",
         "babel-loader": "^8.0.6",
-        "cypress": "^4.9.0",
-        "html-webpack-plugin": "^4.3.0",
         "lazysizes": "^5.1.2",
+        "next": "^9.5.3",
         "react": "^16.11.0",
         "react-dom": "^16.11.0",
-        "webpack-cli": "^3.3.10",
-        "webpack-dev-server": "^3.9.0"
+        "styled-components": "^5.2.0",
+        "stylelint": "^13.7.1",
+        "stylelint-config-recommended": "^3.0.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-processor-styled-components": "^1.10.0"
+    },
+    "resolutions": {
+        "styled-components": "^5"
     }
 }

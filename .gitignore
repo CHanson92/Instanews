@@ -7,6 +7,7 @@
 ehthumbs.db
 *[Tt]humbs.db
 *.Trashes
+.parcel-cache
 # Ignore npm packages
 node_modules/
 # Ignore dist
@@ -15,3 +16,7 @@ dist
 project-02
 # Ignore .vscode folder
 .vscode
+# Ignore yarn error
+yarn-error.log
+# Ignore .next
+.next
