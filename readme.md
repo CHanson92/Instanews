@@ -4,14 +4,10 @@
 
 ## What is this project?
 
-> In this project I had to create a social media style news format using the New York Times API. Originally I used HTML, CSS, SASS, Gulp, jQuery & JavaScript to create the website, however now with experience and keeping up with new technologies I have updated it to use React.
+> I was required to create a social media style news format using the New York Times API. The original specifications of the project was to use HTML/CSS/jQuery to create the website, however with experience and keeping up with new technologies, I have updated the website to use Next.js that allows me to use static generation to provide a better user experience.
 
 ## How to run?
 
-<code>yarn start</code>
-
-## To run tests
-
-<code>yarn test</code>
+> <code>yarn dev</code>
 
 ---
