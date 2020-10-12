@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Selector from './Selector';
 
 const HeaderComponent = styled.header`
     position: fixed;
@@ -23,10 +22,9 @@ const HeaderComponent = styled.header`
 
 const Title = styled.h1``;
 
-const Header = ({ selectFilter }) => (
+const Header = () => (
     <HeaderComponent>
         <Title>Instanews</Title>
-        <Selector selectFilter={selectFilter} />
     </HeaderComponent>
 );
 

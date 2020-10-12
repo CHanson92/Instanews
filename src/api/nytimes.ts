@@ -1,11 +1,11 @@
-import axios from 'axios';
-import { apiKey, url } from '../utils/strings';
+import { apiKey, topStoriesUrl } from '../utils/strings';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const nyTimes = async (filter: string) => {
     try {
-        const res = await axios.get(`${url}${filter}${apiKey}`);
-        const data = await res.data.results;
+        const res = await fetch(`${topStoriesUrl}${filter}${apiKey}`);
+        const json = await res.json();
+        const data = await json.results;
         return data;
     } catch (error) {
         throw Error(error.message);
