@@ -18,5 +18,12 @@ project-02
 .vscode
 # Ignore yarn error
 yarn-error.log
+# Yarn Zero-Installs
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 # Ignore .next
 .next
