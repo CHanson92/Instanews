@@ -8,6 +8,6 @@
 
 ## How to run?
 
-> <code>yarn dev</code>
+<code>yarn dev</code>
 
 ---
