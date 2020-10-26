@@ -1,32 +1,30 @@
 import { GetStaticProps } from 'next';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme/theme';
-import GlobalStyle from '../theme/globalStyle';
-import Header from '../components/Header';
 import Articles from '../components/Articles';
-import Footer from '../components/Footer';
-import { apiKey, topStoriesUrl } from '../utils/strings';
+import Layout from '../components/Layout';
+import { newsApiUrl, newsApiKey } from '../utils/strings';
 
-const Home = ({ articles }) => (
-    <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
-        <Articles results={articles} />
-        <Footer />
-    </ThemeProvider>
-);
+export default function Home({ articles, themeToggler }) {
+    return (
+        <Layout title='Home' themeToggler={themeToggler}>
+            <Articles articles={articles} />
+        </Layout>
+    );
+}
 
 export const getStaticProps: GetStaticProps = async () => {
-    const res = await fetch(`${topStoriesUrl}home${apiKey}`);
-    const articles = await res.json().then((section) => section.results);
+    try {
+        const res = await fetch(
+            `${newsApiUrl}top-headlines?country=gb&apiKey=${newsApiKey}`,
+        );
+        const json = await res.json();
+        const articles = await json.articles;
 
-    return {
-        props: {
-            articles,
-        },
-        // Re-generate the page to check for new articles
-        revalidate: 10,
-    };
+        return {
+            props: {
+                articles,
+            },
+        };
+    } catch (error) {
+        throw Error(error.message);
+    }
 };
-
-export default Home;

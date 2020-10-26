@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "Project 2 for RED Academy",
     "main": "index.js",
-    "homepage": "https://chanson92.github.io/Project-2-Instanews/",
     "scripts": {
         "dev": "next dev",
         "build": "next build",

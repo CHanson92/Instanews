@@ -6,7 +6,8 @@ const Article = dynamic(() => import('./Article'));
 const ArticlesContainer = styled.section`
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: 1em;
+    grid-column-gap: 1em;
+    grid-row-gap: 3em;
     margin: 8em 1em 0px;
 
     @media screen and (min-width: 600px) {
@@ -24,18 +25,12 @@ const ArticlesContainer = styled.section`
     }
 `;
 
-const Articles = ({ results }) => (
+const Articles = ({ articles }) => (
     <ArticlesContainer>
-        {results
-            ? results
-                  .filter(
-                      (article) =>
-                          article.multimedia !== null &&
-                          article.multimedia.length !== 0,
-                  )
-                  .map((article, index) => (
-                      <Article article={article} key={index} />
-                  ))
+        {articles
+            ? articles.map((article, index) => (
+                  <Article article={article} key={index} />
+              ))
             : null}
     </ArticlesContainer>
 );

@@ -1,12 +1,27 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+interface Theme {
+    theme: {
+        body: string;
+        text: string;
+    };
+}
+
+const GlobalStyle = createGlobalStyle<Theme>`
     body {
         height: 100%;
         font-family: 'Open Sans', sans-serif;
+        transition: all 0.25s linear;
+        background: ${({ theme }) => theme.body};
+        color: ${({ theme }) => theme.text};
+        margin: 0;
 
         p {
             margin: 0;
+        }
+
+        a {
+            color: ${({ theme }) => theme.text};
         }
     }
 
@@ -27,14 +42,6 @@ const GlobalStyle = createGlobalStyle`
 
     /* Sections
     ========================================================================== */
-
-    /**
-     * Remove the margin in all browsers.
-     */
-
-    body {
-    margin: 0;
-    }
 
     /**
      * Render the main element consistently in IE.

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import nyTimes from '../api/nytimes';
+import nyTimes from '../api/getNews';
 
 const useResults = () => {
     const [results, setResults] = useState([]);

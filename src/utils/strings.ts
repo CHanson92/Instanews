@@ -30,3 +30,5 @@ export const filters: string[] = [
     'upshot',
     'world',
 ];
+export const newsApiUrl = 'https://newsapi.org/v2/';
+export const newsApiKey = 'f1f266d6e34b43a1b35555eb4b733120';
