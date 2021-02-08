@@ -11,6 +11,17 @@
         "lint": "eslint --fix .",
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "pre-push": "npm run type-check"
+        }
+    },
+    "lint-staged": {
+        "./**/*.{js,jsx,ts,tsx}": [
+            "eslint --fix"
+        ]
+    },
     "keywords": [],
     "author": "Chris Hanson",
     "license": "ISC",
@@ -38,15 +49,5 @@
         "next": "^10.0.6",
         "react": "^17.0.1",
         "react-dom": "^17.0.1"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "./**/*.{js,jsx,ts,tsx}": [
-            "eslint --fix"
-        ]
     }
 }
