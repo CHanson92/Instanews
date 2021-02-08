@@ -1,20 +1,22 @@
-import Head from 'next/head';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Head from 'next/head'
 
-export default function Layout({
-    children,
-    title = 'Default title',
-    themeToggler,
-}) {
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+
+interface Props {
+    children: JSX.Element
+    title: string
+}
+
+export default function Layout({ children, title = 'Default title' }: Props): JSX.Element {
     return (
         <>
             <Head>
                 <title>{title}</title>
             </Head>
-            <Header themeToggler={themeToggler} />
+            <Header />
             {children}
             <Footer />
         </>
-    );
+    )
 }
