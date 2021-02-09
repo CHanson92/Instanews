@@ -20,3 +20,5 @@ project-02
 yarn-error.log
 # Ignore .next
 .next
+# Ignore .env.local
+.env.local

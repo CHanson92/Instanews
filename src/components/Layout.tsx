@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 interface Props {
-    children: JSX.Element
+    children: React.ReactNode
     title: string
 }
 

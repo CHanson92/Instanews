@@ -1,27 +1,35 @@
 import { GetStaticProps } from 'next'
+import useSWR from 'swr'
 
 import Layout from '../components/Layout'
-import { Articles } from '../interfaces/newsApi'
-import { newsApiKey, newsApiUrl } from '../utils/strings'
+import { Article } from '../interfaces'
+import { fetcher } from '../utils/fetcher'
+import { url } from '../utils/strings'
 
 interface Props {
-    articles: Articles
+    articles: Article[]
 }
 
-export default function Home({ articles }: Props): JSX.Element {
-    console.log(articles)
+export default function Home({ articles: topHeadlines }: Props): JSX.Element {
+    const { data } = useSWR(
+        `${url}top-headlines?country=gb&apiKey=${process.env.API_KEY}`,
+        fetcher,
+        { initialData: topHeadlines }
+    )
+
     return (
         <Layout title="Home">
-            <h1>Home</h1>
+            <h1>hello</h1>
         </Layout>
     )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
     try {
-        const res = await fetch(`${newsApiUrl}top-headlines?country=gb&apiKey=${newsApiKey}`)
-        const json = await res.json()
-        const articles = await json.articles
+        const getTopHeadlines = await fetcher(
+            `${url}top-headlines?country=gb&apiKey=${process.env.API_KEY}`
+        )
+        const { articles } = getTopHeadlines
 
         return {
             props: {
