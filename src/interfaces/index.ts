@@ -1,3 +1,7 @@
+export interface Props {
+    articles: Article[]
+}
+
 export interface Article {
     source: {
         name: string
