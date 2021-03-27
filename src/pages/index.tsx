@@ -9,7 +9,16 @@ import { url } from '../utils/strings'
 export default function Home({ articles }: Props): JSX.Element {
     return (
         <Layout title="Home">
-            <ArticleContainer articles={articles} />
+            {/* <ArticleContainer articles={articles} /> */}
+            <h2>Welcome to Instanews</h2>
+            <p>
+                Select below how you want to filter your news{' '}
+                <span role="img" aria-label="wink">
+                    😉
+                </span>
+            </p>
+            <button>Get top headlines by country</button>
+            <button>Search</button>
         </Layout>
     )
 }
