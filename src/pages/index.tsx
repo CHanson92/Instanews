@@ -1,32 +1,40 @@
-import { GetStaticProps } from 'next';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme/theme';
-import GlobalStyle from '../theme/globalStyle';
-import Header from '../components/Header';
-import Articles from '../components/Articles';
-import Footer from '../components/Footer';
-import { apiKey, topStoriesUrl } from '../utils/strings';
+import { GetStaticProps } from 'next'
 
-const Home = ({ articles }) => (
-    <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
-        <Articles results={articles} />
-        <Footer />
-    </ThemeProvider>
-);
+import ArticleContainer from '../components/articles/ArticleContainer'
+import Layout from '../components/shared/Layout'
+import { Props } from '../interfaces'
+import { articleFetcher } from '../utils/fetcher'
+import { url } from '../utils/strings'
+
+export default function Home({ articles }: Props): JSX.Element {
+    return (
+        <Layout title="Home">
+            {/* <ArticleContainer articles={articles} /> */}
+            <h2>Welcome to Instanews</h2>
+            <p>
+                Select below how you want to filter your news{' '}
+                <span role="img" aria-label="wink">
+                    😉
+                </span>
+            </p>
+            <button>Get top headlines by country</button>
+            <button>Search</button>
+        </Layout>
+    )
+}
 
 export const getStaticProps: GetStaticProps = async () => {
-    const res = await fetch(`${topStoriesUrl}home${apiKey}`);
-    const articles = await res.json().then((section) => section.results);
+    try {
+        const articles = await articleFetcher(
+            `${url}top-headlines?country=gb&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
+        )
 
-    return {
-        props: {
-            articles,
-        },
-        // Re-generate the page to check for new articles
-        revalidate: 10,
-    };
-};
-
-export default Home;
+        return {
+            props: {
+                articles
+            }
+        }
+    } catch (error) {
+        throw Error(error.message)
+    }
+}
