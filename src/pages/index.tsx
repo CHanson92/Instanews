@@ -6,28 +6,19 @@ import { Props } from '../interfaces'
 import { articleFetcher } from '../utils/fetcher'
 import { url } from '../utils/strings'
 
-export default function Home({ articles }: Props): JSX.Element {
+export default function Home({ articles }: Props) {
     return (
         <Layout title="Home">
-            {/* <ArticleContainer articles={articles} /> */}
-            <h2>Welcome to Instanews</h2>
-            <p>
-                Select below how you want to filter your news{' '}
-                <span role="img" aria-label="wink">
-                    😉
-                </span>
-            </p>
-            <button>Get top headlines by country</button>
-            <button>Search</button>
+            <main>
+                <ArticleContainer articles={articles} />
+            </main>
         </Layout>
     )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
     try {
-        const articles = await articleFetcher(
-            `${url}top-headlines?country=gb&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
-        )
+        const articles = await articleFetcher(`${url}top-headlines?country=gb`)
 
         return {
             props: {
