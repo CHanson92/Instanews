@@ -1,24 +1,21 @@
-import useSWR from 'swr'
-
 import { Article, Props } from '../../interfaces'
-import { articleFetcher } from '../../utils/fetcher'
-import { url } from '../../utils/strings'
 
-const ArticleContainer = ({ articles }: Props): JSX.Element => {
-    const {
-        data
-    } = useSWR(
-        `${url}top-headlines?country=gb&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`,
-        articleFetcher,
-        { initialData: articles }
-    )
-
-    return data.map(
-        (article: Article, index: number): JSX.Element => (
-            <article key={index}>
-                <p>{article.title}</p>
-            </article>
-        )
+const ArticleContainer = ({ articles }: Props) => {
+    return (
+        <>
+            {articles.map(
+                (article: Article, index: number): JSX.Element => (
+                    <article key={index}>
+                        <h1>{article.source.name}</h1>
+                        <p>{new Date(article.publishedAt).toLocaleDateString()}</p>
+                        <a href={article.url}>
+                            <img src={article.urlToImage} />
+                        </a>
+                        <p>{article.description}</p>
+                    </article>
+                )
+            )}
+        </>
     )
 }
 
