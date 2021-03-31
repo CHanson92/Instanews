@@ -18,7 +18,10 @@ export default function Home({ articles }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
     try {
-        const articles = await articleFetcher(`${url}top-headlines?country=gb`)
+        const res = await articleFetcher(`${url}top-headlines?country=gb`)
+        const articles = res.filter(
+            (article) => article.urlToImage !== null && article.description !== ''
+        )
 
         return {
             props: {
