@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import 'tailwindcss/tailwind.css'
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
     return (
