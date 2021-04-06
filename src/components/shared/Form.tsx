@@ -6,7 +6,11 @@ type Input = {
 }
 
 const Form = () => {
-    const { register, handleSubmit, errors } = useForm<Input>()
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<Input>()
     const router = useRouter()
 
     const onSubmit = (data: Input) => {
@@ -18,12 +22,11 @@ const Form = () => {
         <form role="search" onSubmit={handleSubmit(onSubmit)}>
             <input
                 type="search"
-                name="search"
+                {...register('search')}
                 placeholder="search for more specific news"
-                aria-label="Search for more specific news"
-                ref={register}
+                aria-invalid={errors.search ? 'true' : 'false'}
             />
-            {errors.search && <span>Something went wrong!</span>}
+            {errors.search && <span role="alert">Something went wrong!</span>}
             <input type="submit" />
         </form>
     )
