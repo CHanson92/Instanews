@@ -9,9 +9,7 @@ import { url } from '../utils/strings'
 export default function Home({ articles }: Props) {
     return (
         <Layout title="Home">
-            <main>
-                <ArticleContainer articles={articles} />
-            </main>
+            <ArticleContainer articles={articles} />
         </Layout>
     )
 }
@@ -20,13 +18,14 @@ export const getStaticProps: GetStaticProps = async () => {
     try {
         const res = await articleFetcher(`${url}top-headlines?country=gb`)
         const articles = res.filter(
-            (article) => article.urlToImage !== null && article.description !== ''
+            (article) => article.urlToImage !== null && article.description !== null
         )
 
         return {
             props: {
                 articles
-            }
+            },
+            revalidate: 10
         }
     } catch (error) {
         throw Error(error.message)
