@@ -22,12 +22,16 @@ const Form = () => {
         <form role="search" onSubmit={handleSubmit(onSubmit)}>
             <input
                 type="search"
-                {...register('search')}
-                placeholder="search for more specific news"
+                {...register('search', { required: true })}
+                placeholder="🔍   search specific news"
                 aria-invalid={errors.search ? 'true' : 'false'}
+                className="min-w-15 text-center border border-gray-600 px-2 py-3 mt-2 rounded-md text-gray-800 font-semibold focus:outline-none focus:ring-2 focus:ring-offset-gray-800"
             />
-            {errors.search && <span role="alert">Something went wrong!</span>}
-            <input type="submit" />
+            {errors.search && (
+                <span role="alert" className="text-red-600">
+                    Required!
+                </span>
+            )}
         </form>
     )
 }
