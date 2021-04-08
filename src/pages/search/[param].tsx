@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
-        if (context.params === undefined) return { props: {} }
+        if (context.params === undefined) return { props: {}, redirect: '/', permanent: false }
         const param = context.params.param
         const res = await articleFetcher(`${url}everything?q=${param}`)
         const articles = res.filter(
@@ -38,7 +38,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
         return {
             props: {
                 articles
-            }
+            },
+            revalidate: 10
         }
     } catch (error) {
         throw Error(error.message)
