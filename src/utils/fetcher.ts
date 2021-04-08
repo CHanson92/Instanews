@@ -2,7 +2,7 @@ import { Article } from '../interfaces'
 
 export const articleFetcher = async (url: string): Promise<Article[]> => {
     const requestHeaders: HeadersInit = new Headers()
-    const apiKey = process.env.NEXT_PUBLIC_API_KEY
+    const apiKey = process.env.API_KEY
     requestHeaders.set('x-api-key', apiKey ? apiKey : '')
 
     const res = await fetch(url, {
