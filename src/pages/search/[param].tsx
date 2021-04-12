@@ -21,7 +21,7 @@ function Search({ router, articles }: Props) {
 
 export async function getStaticPaths() {
     return {
-        paths: [`/search/[param]`],
+        paths: [],
         fallback: true
     }
 }
