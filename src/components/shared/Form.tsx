@@ -28,7 +28,7 @@ const Form = () => {
                 className="min-w-15 text-center border rounded-md font-semibold focus:outline-none focus:ring-2 border-gray-600 text-gray-800 focus:ring-offset-gray-800 dark:bg-gray-800 dark:border-white dark:text-white dark:placeholder-white transition-colors px-2 py-3 mt-2"
             />
             {errors.search && (
-                <span role="alert" className="text-red-600">
+                <span role="alert" className="text-red-600 ml-3">
                     Required!
                 </span>
             )}
